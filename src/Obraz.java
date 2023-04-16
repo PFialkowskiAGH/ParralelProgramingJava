@@ -74,6 +74,7 @@ public class Obraz
     }
     public synchronized void print_histogram_for_char(int searchedChar)
     {
+        System.out.print(Watek.currentThread().getName() + ": ");
         System.out.print(tab_symb[searchedChar]);
         for (int i = 0; i < parallelHistogram[searchedChar]; i++)
         {
