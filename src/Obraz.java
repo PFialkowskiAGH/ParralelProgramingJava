@@ -7,7 +7,6 @@ public class Obraz
     private char[][] tab;
     private char[] tab_symb;
     private int[] histogram;
-
     private int[] parallelHistogram;
 
     public Obraz(int n, int m) {
@@ -39,8 +38,8 @@ public class Obraz
         clear_histogram();
     }
 
-    public void clear_histogram(){
-
+    public void clear_histogram()
+    {
         for(int i=0;i<94;i++) histogram[i]=0;
         for(int i=0;i<94;i++) parallelHistogram[i]=0;
     }
@@ -99,5 +98,15 @@ public class Obraz
             //System.out.print((char)(i+33)+" "+histogram[i]+"\n");
         }
 
+    }
+    public void compareHistogram()
+    {
+        boolean isSame = true;
+        for(int i=0;i<94;i++)
+        {
+            if (histogram[i] != parallelHistogram[i]) isSame = false;
+        }
+        if (isSame) System.out.println("Histogramy są takie same");
+        else System.out.println("Histogramy nie są takie same");
     }
 }

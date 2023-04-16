@@ -28,7 +28,7 @@ public class HistogramTest
              try {
          	NewThr[i].join();
              } catch (InterruptedException e) {}
-         }
-
+        }
+        obraz_1.compareHistogram();
     }
 }
