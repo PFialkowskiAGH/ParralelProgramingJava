@@ -74,7 +74,12 @@ public class Obraz
     }
     public synchronized void print_histogram_for_char(int searchedChar)
     {
-        System.out.print(tab_symb[searchedChar]+" "+histogram[searchedChar]+"\n");
+        System.out.print(tab_symb[searchedChar]);
+        for (int i = 0; i < parallelHistogram[searchedChar]; i++)
+        {
+            System.out.print("=");
+        }
+        System.out.print("\n");
     }
 // uniwersalny wzorzec dla rĂłĹźnych wariantĂłw zrĂłwnoleglenia - moĹźna go modyfikowaÄ dla
 // rĂłĹźnych wersji dekompozycji albo stosowaÄ tak jak jest zapisane poniĹźej zmieniajÄc tylko
