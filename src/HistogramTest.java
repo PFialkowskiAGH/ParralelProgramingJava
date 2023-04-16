@@ -14,20 +14,21 @@ public class HistogramTest
         obraz_1.calculate_histogram();
         obraz_1.print_histogram();
 
-        // System.out.println("Set number of threads");
-        // int num_threads = scanner.nextInt();
+        System.out.println("---------------------------------------------------------------------------");
+        //System.out.println("Set number of threads");
+        int num_threads = 94;//scanner.nextInt();
 
-        // Watek[] NewThr = new Watek[num_threads];
+        Watek[] NewThr = new Watek[num_threads];
 
-        // for (int i = 0; i < num_threads; i++) {
-        //     (NewThr[i] = new Watek(...,obraz_1)).start();
-        // }
+        for (int i = 0; i < num_threads; i++) {
+            (NewThr[i] = new Watek(i,obraz_1)).start();
+       }
 
-        // for (int i = 0; i < num_threads; i++) {
-        //     try {
-        // 	NewThr[i].join();
-        //     } catch (InterruptedException e) {}
-        // }
+        for (int i = 0; i < num_threads; i++) {
+             try {
+         	NewThr[i].join();
+             } catch (InterruptedException e) {}
+         }
 
     }
 }

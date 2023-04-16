@@ -8,6 +8,8 @@ public class Obraz
     private char[] tab_symb;
     private int[] histogram;
 
+    private int[] parallelHistogram;
+
     public Obraz(int n, int m) {
 
         this.size_n = n;
@@ -33,13 +35,14 @@ public class Obraz
         System.out.print("\n\n");
 
         histogram = new int[94];
+        parallelHistogram = new int[94];
         clear_histogram();
     }
 
     public void clear_histogram(){
 
         for(int i=0;i<94;i++) histogram[i]=0;
-
+        for(int i=0;i<94;i++) parallelHistogram[i]=0;
     }
 
     public void calculate_histogram(){
@@ -62,7 +65,18 @@ public class Obraz
         }
 
     }
-
+    public void calculate_histogram_for_char(int searchedChar)
+    {
+        for(int i=0;i<size_n;i++) {
+            for(int j=0;j<size_m;j++) {
+                if(tab[i][j] == tab_symb[searchedChar]) parallelHistogram[searchedChar]++;
+            }
+        }
+    }
+    public synchronized void print_histogram_for_char(int searchedChar)
+    {
+        System.out.print(tab_symb[searchedChar]+" "+histogram[searchedChar]+"\n");
+    }
 // uniwersalny wzorzec dla rĂłĹźnych wariantĂłw zrĂłwnoleglenia - moĹźna go modyfikowaÄ dla
 // rĂłĹźnych wersji dekompozycji albo stosowaÄ tak jak jest zapisane poniĹźej zmieniajÄc tylko
 // parametry wywoĹania w wÄtkach
