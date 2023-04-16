@@ -31,5 +31,21 @@ public class HistogramTest
         }
 
         obraz_1.compareHistogram();
+
+        System.out.println("---------------------------------------------------------------------------");
+//        System.out.println("Set number of threads");
+//        num_threads = scanner.nextInt();
+//
+//        Watek[] NewThr2 = new Watek[num_threads];
+//
+//        for (int i = 0; i < num_threads; i++) {
+//            (NewThr2[i] = new Watek(i,obraz_1)).start();
+//        }
+//
+//        for (int i = 0; i < num_threads; i++) {
+//            try {
+//                NewThr2[i].join();
+//            } catch (InterruptedException e) {}
+//        }
     }
 }
