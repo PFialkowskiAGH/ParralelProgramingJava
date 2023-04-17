@@ -36,18 +36,14 @@ public class HistogramTest
         System.out.println("Set number of threads");
         num_threads = scanner.nextInt();
         int d = 94 % num_threads;
+        int r = 94 / num_threads;
 
-//
-//        Watek[] NewThr2 = new Watek[num_threads];
-//
-//        for (int i = 0; i < num_threads; i++) {
-//            (NewThr2[i] = new Watek(i,obraz_1)).start();
-//        }
-//
-//        for (int i = 0; i < num_threads; i++) {
-//            try {
-//                NewThr2[i].join();
-//            } catch (InterruptedException e) {}
-//        }
+        for (int i = 0; i < num_threads; i++)
+        {
+            if (i == num_threads-1) new Thread(new RunnableClass(i,i+r+d,obraz_1)).start();
+            else new Thread(new RunnableClass(i,i+r,obraz_1)).start();
+        }
+
+        obraz_1.compareHistogram();
     }
 }

@@ -1,17 +1,20 @@
 public class RunnableClass implements Runnable
 {
     Obraz obraz;
-    int searchedChars[];
+    int startChar;
+    int endChar;
 
-    public RunnableClass(int[] searchedChars, Obraz obraz)
+    public RunnableClass(int startChar, int endChar, Obraz obraz)
     {
         this.obraz = obraz;
-        this.searchedChars = searchedChars;
+        this.startChar = startChar;
+        this.endChar = endChar;
     }
 
     @Override
-    public void run() {
-        for (int i = 0; i < searchedChars.length; i++)
+    public void run()
+    {
+        for (int i = startChar; i < endChar; i++)
         {
             obraz.calculate_histogram_for_char(i);
             obraz.print_histogram_for_char(i);
