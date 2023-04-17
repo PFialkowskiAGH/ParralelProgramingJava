@@ -44,6 +44,11 @@ public class Obraz
         for(int i=0;i<94;i++) parallelHistogram[i]=0;
     }
 
+    public void clear_only_parallelHistogram()
+    {
+        for(int i=0;i<94;i++) parallelHistogram[i]=0;
+    }
+
     public void calculate_histogram(){
 
         for(int i=0;i<size_n;i++) {
@@ -81,6 +86,23 @@ public class Obraz
             System.out.print("=");
         }
         System.out.print("\n");
+    }
+
+    public synchronized void calculate_histogram_for_one_row(int searchedRow)
+    {
+        int[] partParrarelHistogram = new int[94];
+        for(int i=0;i<94;i++) partParrarelHistogram[i]=0;
+
+        for(int j=0;j<size_m;j++) {
+            for(int k=0;k<94;k++) {
+                if(tab[searchedRow][j] == tab_symb[k]) partParrarelHistogram[k]++;
+            }
+        }
+
+        for (int i=0;i<94;i++)
+        {
+            parallelHistogram[i] += partParrarelHistogram[i];
+        }
     }
 // uniwersalny wzorzec dla rĂłĹźnych wariantĂłw zrĂłwnoleglenia - moĹźna go modyfikowaÄ dla
 // rĂłĹźnych wersji dekompozycji albo stosowaÄ tak jak jest zapisane poniĹźej zmieniajÄc tylko
