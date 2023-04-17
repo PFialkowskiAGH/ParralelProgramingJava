@@ -7,7 +7,8 @@ public class Watek extends Thread
         this.obraz = obraz;
         this.searchedChar = i;
     }
-    public void run() {
+    public void run()
+    {
         obraz.calculate_histogram_for_char(searchedChar);
         obraz.print_histogram_for_char(searchedChar);
     }
