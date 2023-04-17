@@ -10,6 +10,6 @@ public class RunnableClass2 implements Runnable
     @Override
     public void run()
     {
-        obraz.calculate_histogram_for_one_row(row);
+        obraz.calculate_print_histogram_for_one_row(row);
     }
 }

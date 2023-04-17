@@ -88,7 +88,7 @@ public class Obraz
         System.out.print("\n");
     }
 
-    public synchronized void calculate_histogram_for_one_row(int searchedRow)
+    public synchronized void calculate_print_histogram_for_one_row(int searchedRow)
     {
         int[] partParrarelHistogram = new int[94];
         for(int i=0;i<94;i++) partParrarelHistogram[i]=0;
@@ -101,6 +101,7 @@ public class Obraz
 
         for (int i=0;i<94;i++)
         {
+            System.out.print(tab_symb[i]+" "+partParrarelHistogram[i]+"\n");
             parallelHistogram[i] += partParrarelHistogram[i];
         }
     }
@@ -117,15 +118,19 @@ public class Obraz
 //        for(int k=start_znak;k<end_znak;k+=skok_znak) {
 //           if(tab[i][j] == tab_symb[k]) histogram[k]++;
 //
-
-
-    public void print_histogram(){
-
+    public void print_histogram()
+    {
         for(int i=0;i<94;i++) {
             System.out.print(tab_symb[i]+" "+histogram[i]+"\n");
             //System.out.print((char)(i+33)+" "+histogram[i]+"\n");
         }
-
+    }
+    public void print_parallelHistogram()
+    {
+        for(int i=0;i<94;i++) {
+            System.out.print(tab_symb[i]+" "+parallelHistogram[i]+"\n");
+            //System.out.print((char)(i+33)+" "+histogram[i]+"\n");
+        }
     }
     public void compareHistogram()
     {

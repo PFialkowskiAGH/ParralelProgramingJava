@@ -71,6 +71,7 @@ public class HistogramTest
             } catch (InterruptedException e) {}
         }
 
+        obraz_1.print_parallelHistogram();
         obraz_1.compareHistogram();
     }
 }
